@@ -9,29 +9,14 @@
   padding: 0;
 }
 body {
-  background: url(imgs/overlay_stars.svg) left top repeat,
+  background: url(../img/overlay_stars.svg) left top repeat,
     linear-gradient(to right bottom, #a9347e, #4b32a7);
   background-size: 400px, auto;
   color: var(--white);
   font-family: Space Mono, monospace;
   height: 100vh;
   width: 100vw;
-}
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-a {
-  text-decoration: none;
-  color: inherit;
-}
-main {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  padding: 0 1rem;
-  margin-top: 80px;
+  user-select: none;
 }
 .navbar {
   align-items: center;
@@ -39,32 +24,6 @@ main {
   justify-content: center;
   padding: 1rem;
   font-size: 1.2rem;
-}
-.navbar ul {
-  display: none;
-}
-@media screen and (min-width: 420px) {
-  .navbar {
-    font-size: 1rem;
-    justify-content: space-between;
-  }
-  .navbar ul {
-    display: flex;
-  }
-  .navbar ul li {
-    padding: 0.5rem 0.75rem;
-  }
-  .navbar ul li::after {
-    content: '';
-    display: block;
-    width: 0;
-    height: 2px;
-    background: var(--white);
-    transition: width 0.3s;
-  }
-  .navbar ul li:hover::after {
-    width: 100%;
-  }
 }
 .message {
   display: flex;
@@ -104,10 +63,10 @@ main {
 }
 .box-astronaut {
   position: absolute;
-  top: 50%;
-  right: 20%;
+  top: 55%;
+  right: 25%;
   will-change: transform;
-  animation: move-astronaut 50s infinite linear both alternate;
+  animation: move-astronaut 90s infinite linear both alternate;
 }
 .box-astronaut img {
   width: 150px;
@@ -122,6 +81,32 @@ main {
 @keyframes move-astronaut {
   100% {
     -webkit-transform: translate(-100px, -100px);
-    transform: translate(-100px, -100px);
+    transform: translate(-1000px, -1000px);
   }
+}
+
+@media screen and (max-width: 600px) {
+  .box-astronaut {
+      position: absolute;
+      top: 70%;
+      right: 10%;
+      will-change: transform;
+      animation: move-astronaut 90s infinite linear both alternate;
+    }
+    .box-astronaut img {
+      width: 150px;
+      animation: rotate-astronaut 200s infinite linear both alternate;
+    }
+    @keyframes rotate-astronaut {
+      100% {
+        -webkit-transform: rotate(-720deg);
+        transform: rotate(-720deg);
+      }
+    }
+    @keyframes move-astronaut {
+      100% {
+        -webkit-transform: translate(-100px, -100px);
+        transform: translate(-200px, -300px);
+      }
+    }
 }
